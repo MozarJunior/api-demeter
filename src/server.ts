@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 
 
 app.get('/sensor', async () => {
-    const sensor = await prisma.sensor.findMany();
+    const sensor = await prisma.Sensor.findMany();
 
     return { sensor }
 });
@@ -21,7 +21,7 @@ app.post('/sensor', async (request, replay) => {
 
     const { nome, valor } = createSensorSchema.parse(request.body);
 
-    await prisma.sensor.create({
+    await prisma.Sensor.create({
         data: {
             nome, 
             valor,
