@@ -13,9 +13,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Sensor {
+model Flow {
   id String @id @default(cuid())
   nome String
-  Valor Float
+  valor Float
   createdAt DateTime @default(now())
 }

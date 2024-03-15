@@ -7,13 +7,13 @@ const app = fastify();
 const prisma = new PrismaClient();
 
 
-app.get('/sensor', async () => {
-    const sensor = await prisma.Sensor.findMany();
+app.get('/', async () => {
+    const sensor = await prisma.flow.findMany();
 
     return { sensor }
 });
 
-app.post('/sensor', async (request, replay) => {
+app.post('/flow', async (request, replay) => {
     const createSensorSchema = z.object({
         nome: z.string(),
         valor: z.number(),
@@ -21,7 +21,7 @@ app.post('/sensor', async (request, replay) => {
 
     const { nome, valor } = createSensorSchema.parse(request.body);
 
-    await prisma.Sensor.create({
+    await prisma.flow.create({
         data: {
             nome, 
             valor,
