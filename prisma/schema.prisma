@@ -16,6 +16,6 @@ datasource db {
 model Flow {
   id String @id @default(cuid())
   nome String
-  valor Float
+  valor Int
   createdAt DateTime @default(now())
 }
