@@ -16,7 +16,7 @@ app.get('/', async () => {
 app.post('/flow', async (request, replay) => {
     const createSensorSchema = z.object({
         nome: z.string(),
-        valor: z.number(),
+        valor: z.string(),
     });
 
     const { nome, valor } = createSensorSchema.parse(request.body);
